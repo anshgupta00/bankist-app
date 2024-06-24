@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="/icon.png" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="bankist.css" />
+    <title>Bankist App</title>
+  </head>
+
+    <nav>
+      <p class="welcome">Log in to get Started</p>
+      <img src="logo.png" alt="logo" class="logo" />
+    
+
+    <form class="login">
+      <input
+        type="text"
+        placeholder="username"
+        class="login__input login__input--user"
+      />
+      <input
+        type="pin"
+        placeholder="1234"
+        maxlength="4"
+        class="login__input login__input--pin"
+      />
+      <button class="login__btn">&rarr;</button>
+    </form>
+</nav>
+<main class="app">
+    <div class="balance">
+        <div>
+            <p class="balance__label">Current balance</p>
+            <p class="balance__date">As of <span class="date">05/03/2037</span></p>
+    
+        </div>
+        <div>
+            <p class="balance__value">0000$</p>
+
+        </div>
+    </div>
+</main>
+
+    <script src="bankist.js"></script>
+  </body>
+</html>
