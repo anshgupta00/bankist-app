@@ -62,10 +62,11 @@ const inputClosePin = document.querySelector(".form__input--pin");
 /////////////////////////////////////////////////
 // Functions
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = "";
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
 
-  movements.forEach(function (mov, i) {
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? "deposit" : "withdrawal";
 
     const html = `
@@ -188,6 +189,21 @@ btnTransfer.addEventListener("click", function (e) {
     updateUI(currentAccount);
   }
 });
+
+/////////////////
+//addiing load amount
+btnLoan.addEventListener("click", function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    //add movement
+    currentAccount.movements.push(amount);
+    //update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = "";
+});
+
 /////////////////////////////////////////////////////////////////////////////
 // deleting acount
 btnClose.addEventListener("click", function (e) {
@@ -207,4 +223,13 @@ btnClose.addEventListener("click", function (e) {
     labelWelcome.textContent = "Log into get started account";
     inputCloseUsername.value = inputClosePin.value = "";
   }
+});
+///////////////////////////////////////
+//working with sort botton
+
+let sorted = false;
+btnSort.addEventListener("click", function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted; //fliping the variable;
 });

@@ -197,7 +197,8 @@ nav {
 }
 .btn--sort {
   margin-left: auto;
-  border: none;
+  /* border: 1px solid black; */
+
   /* border-radius: 1rem; */
   align-items: center;
   justify-content: center;
@@ -206,6 +207,10 @@ nav {
   font-size: 1.3rem;
   font-weight: 500;
   cursor: pointer;
+}
+.btn--sort:hover {
+  outline: none;
+  color: #c02828;
 }
 /* OPERATIONS */
 .operation {
